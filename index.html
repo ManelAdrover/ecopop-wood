@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPop Wood | Figures amb cap gran i impacte petit</title>
+  <meta name="description" content="Col·leccionables sostenibles fets a Mallorca amb fusta i cartró reutilitzats. Alternativa artesanal als Funkos comercials.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wood: #8B5E3C;
+      --wood-light: #C4A484;
+      --wood-dark: #5C3D2E;
+      --cream: #F8F1E9;
+      --cream-dark: #EDE4D9;
+      --green: #4A7C59;
+      --green-light: #6B9B7A;
+      --text: #2C241B;
+      --text-light: #5C534A;
+      --white: #FFFFFF;
+      --shadow: 0 10px 40px rgba(92, 61, 46, 0.12);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(248, 241, 233, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.7rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--wood-dark);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--wood);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      width: 12px;
+      height: 12px;
+      background: var(--green);
+      border-radius: 50%;
+      border: 2px solid var(--cream);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--wood);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--wood);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--wood);
+      color: white !important;
+      padding: 0.55rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--wood-dark);
+      color: white !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--wood-dark);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(196, 164, 132, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(74, 124, 89, 0.12) 0%, transparent 40%),
+        linear-gradient(160deg, var(--cream) 0%, var(--cream-dark) 100%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.15;
+      color: var(--wood-dark);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text h1 span {
+      color: var(--wood);
+    }
+
+    .hero-slogan {
+      font-size: 1.25rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--wood);
+      color: white;
+      box-shadow: 0 4px 20px rgba(139, 94, 60, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--wood-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(139, 94, 60, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--wood-dark);
+      border: 2px solid var(--wood-light);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--wood);
+      background: rgba(139, 94, 60, 0.05);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 340px;
+      position: relative;
+      transform: rotate(-3deg);
+      transition: transform 0.4s;
+    }
+
+    .hero-card:hover {
+      transform: rotate(0deg) scale(1.03);
+    }
+
+    .hero-card-icon {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(145deg, var(--wood-light), var(--wood));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(139, 94, 60, 0.25);
+    }
+
+    .hero-card-icon::before {
+      content: '🌱';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 1.5rem;
+      background: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .hero-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--wood-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: white;
+      padding: 0.6rem 1.1rem;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--wood-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-1 {
+      top: 10%;
+      left: -20px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .badge-2 {
+      bottom: 15%;
+      right: -10px;
+      animation: float 4s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header .tag {
+      display: inline-block;
+      background: rgba(74, 124, 89, 0.12);
+      color: var(--green);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--wood-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      color: var(--wood-dark);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-features {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(139, 94, 60, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .feature-item h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: var(--wood-dark);
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      margin: 0;
+      color: var(--text-light);
+    }
+
+    .about-visual {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .comparison-table th {
+      font-weight: 600;
+      color: var(--wood-dark);
+      font-size: 0.9rem;
+    }
+
+    .comparison-table td {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table .highlight {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ===== PROCESS ===== */
+    .process {
+      background: white;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--wood-light), var(--green-light));
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: var(--cream);
+      border: 3px solid var(--wood-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .step:hover .step-number {
+      background: var(--wood);
+      border-color: var(--wood);
+      color: white;
+      transform: scale(1.08);
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      color: var(--wood-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      padding: 0 0.5rem;
+    }
+
+    /* ===== MATERIALS ===== */
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .material-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .material-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 50px rgba(92, 61, 46, 0.15);
+    }
+
+    .material-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(139, 94, 60, 0.1);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.3rem;
+    }
+
+    .material-card h3 {
+      font-size: 1.25rem;
+      color: var(--wood-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .material-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    /* ===== COLLECTION ===== */
+    .collection {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .figure-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .figure-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .figure-image {
+      height: 200px;
+      background: linear-gradient(145deg, var(--wood-light), var(--wood));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      position: relative;
+    }
+
+    .figure-image .leaf {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .figure-info {
+      padding: 1.4rem;
+    }
+
+    .figure-info h3 {
+      font-size: 1.15rem;
+      color: var(--wood-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .figure-info p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+
+    .figure-tag {
+      display: inline-block;
+      background: rgba(74, 124, 89, 0.12);
+      color: var(--green);
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ===== PERSONALIZATION ===== */
+    .personalization-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .personalization-text h3 {
+      font-size: 1.6rem;
+      color: var(--wood-dark);
+      margin-bottom: 1rem;
+    }
+
+    .personalization-text p {
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .check-list li::before {
+      content: '✓';
+      width: 26px;
+      height: 26px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .personalization-visual {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .personalization-visual .big-icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+
+    .personalization-visual h4 {
+      font-size: 1.3rem;
+      color: var(--wood-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .personalization-visual p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* ===== IMPACT ===== */
+    .impact {
+      background: var(--wood-dark);
+      color: white;
+    }
+
+    .impact .section-header .tag {
+      background: rgba(255,255,255,0.15);
+      color: var(--wood-light);
+    }
+
+    .impact .section-header h2 {
+      color: white;
+    }
+
+    .impact .section-header p {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .impact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .impact-card:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .impact-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .impact-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--wood-light);
+    }
+
+    .impact-card p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .cta-box {
+      background: white;
+      border-radius: 24px;
+      padding: 3.5rem 2rem;
+      box-shadow: var(--shadow);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--wood-dark);
+      margin-bottom: 1rem;
+    }
+
+    .cta-box p {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--wood-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    footer .logo {
+      color: white;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .location {
+      color: var(--wood-light);
+      font-weight: 500;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .about-grid,
+      .personalization-content {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+
+      .materials-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 7rem 1.2rem 3rem;
+      }
+
+      section {
+        padding: 4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="logo">
+      <div class="logo-icon">👤</div>
+      EcoPop Wood
+    </a>
+    <ul class="nav-links">
+      <li><a href="#projecte">El projecte</a></li>
+      <li><a href="#proces">Procés</a></li>
+      <li><a href="#materials">Materials</a></li>
+      <li><a href="#coleccio">Col·lecció</a></li>
+      <li><a href="#impacte">Impacte</a></li>
+      <li><a href="#contacte" class="nav-cta">Contacte</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Menú">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-slogan">🌱 Sostenible · Artesanal · Local</div>
+        <h1>Figures amb <span>cap gran</span><br>i impacte petit</h1>
+        <p class="hero-desc">
+          Col·leccionables inspirats en els Funkos, fabricats a Mallorca amb fusta i cartró reutilitzats. 
+          Una alternativa sostenible, personalitzable i feta a mà.
+        </p>
+        <div class="hero-buttons">
+          <a href="#coleccio" class="btn btn-primary">Veure la col·lecció</a>
+          <a href="#proces" class="btn btn-secondary">Com ho fem</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-badge badge-1">🪵 Fusta reciclada</div>
+        <div class="floating-badge badge-2">✂️ Tall làser</div>
+        <div class="hero-card">
+          <div class="hero-card-icon">👤</div>
+          <h3>EcoPop Wood</h3>
+          <p>El cap gran,<br>l'impacte petit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTE -->
+  <section id="projecte">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">El projecte</span>
+        <h2>No és un Funko més</h2>
+        <p>Creem figures amb ànima, història i respecte pel planeta.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Una alternativa artesanal i sostenible</h3>
+          <p>
+            EcoPop Wood neix de la voluntat de crear col·leccionables amb un impacte ambiental molt més baix. 
+            En lloc de plàstic industrial, utilitzem fusta i cartró reutilitzats, tallats amb precisió làser i muntats a mà.
+          </p>
+          <p>
+            Cada figura és única: pot representar personatges de la cultura popular o persones reals del nostre entorn.
+          </p>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">🌍</div>
+              <div>
+                <h4>Materials reciclats</h4>
+                <p>Fusta i cartró que d’altra manera serien residus</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✋</div>
+              <div>
+                <h4>Fet a mà a Mallorca</h4>
+                <p>Producció local, a petita escala i amb cura</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎨</div>
+              <div>
+                <h4>Totalment personalitzable</h4>
+                <p>Des de personatges coneguts fins a tu mateix</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Funko comercial</th>
+                <th>EcoPop Wood</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Material</strong></td>
+                <td>Plàstic</td>
+                <td class="highlight">Fusta + cartró</td>
+              </tr>
+              <tr>
+                <td><strong>Producció</strong></td>
+                <td>Industrial</td>
+                <td class="highlight">Artesanal</td>
+              </tr>
+              <tr>
+                <td><strong>Origen</strong></td>
+                <td>Global</td>
+                <td class="highlight">Mallorca</td>
+              </tr>
+              <tr>
+                <td><strong>Personalització</strong></td>
+                <td>Molt limitada</td>
+                <td class="highlight">Alta</td>
+              </tr>
+              <tr>
+                <td><strong>Impacte</strong></td>
+                <td>Alt</td>
+                <td class="highlight">Baix</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCÉS -->
+  <section class="process" id="proces">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Com ho fem</span>
+        <h2>Del dibuix a la figura</h2>
+        <p>Un procés complet que combina creativitat, tecnologia i treball manual.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">✏️</div>
+          <h3>1. Esbossos</h3>
+          <p>Dibuixem a mà la forma del cap, cos i detalls per definir el personatge.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">💻</div>
+          <h3>2. Disseny digital</h3>
+          <p>Passem el disseny a vectorial i dividim la figura en peces per al làser.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">⚡</div>
+          <h3>3. Tall làser</h3>
+          <p>Tallem fusta i cartró amb precisió i afegim gravats decoratius.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">🛠️</div>
+          <h3>4. Muntatge</h3>
+          <p>Encaixem, encollem i donem l’acabat final a cada figura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section id="materials">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Materials</span>
+        <h2>El que abans era residu</h2>
+        <p>Transformem materials descartats en objectes amb valor i personalitat.</p>
+      </div>
+      <div class="materials-grid">
+        <div class="material-card">
+          <div class="material-icon">🪵</div>
+          <h3>Fusta reutilitzada</h3>
+          <p>Restes de projectes, embalatges o elements que ja no s’utilitzen. Ideal per a l’estructura resistent de la figura.</p>
+        </div>
+        <div class="material-card">
+          <div class="material-icon">📦</div>
+          <h3>Cartró reciclat</h3>
+          <p>Perfecte per a proves de muntatge i elements decoratius més lleugers. Fàcil de treballar i molt versàtil.</p>
+        </div>
+        <div class="material-card">
+          <div class="material-icon">✨</div>
+          <h3>Acabats naturals</h3>
+          <p>Vernís, oli o pintura a l’aigua. També deixem la textura natural de la fusta visible quan queda bé.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COL·LECCIÓ -->
+  <section class="collection" id="coleccio">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Col·lecció</span>
+        <h2>Les primeres figures</h2>
+        <p>Una mostra del que es pot crear combinant disseny, làser i materials recuperats.</p>
+      </div>
+      <div class="collection-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <span class="leaf">🌱</span>
+            🦸
+          </div>
+          <div class="figure-info">
+            <h3>Heroi Local</h3>
+            <p>Inspirat en personatges de còmic, amb base de fusta natural.</p>
+            <span class="figure-tag">Fusta + cartró</span>
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-image">
+            <span class="leaf">🌱</span>
+            🧙
+          </div>
+          <div class="figure-info">
+            <h3>Màgic de l’Aula</h3>
+            <p>Versió personalitzada d’un professor o company de classe.</p>
+            <span class="figure-tag">Personalitzat</span>
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-image">
+            <span class="leaf">🌱</span>
+            🎮
+          </div>
+          <div class="figure-info">
+            <h3>Gamer Classic</h3>
+            <p>Estil retro de videojocs, amb detalls gravats al làser.</p>
+            <span class="figure-tag">Edició especial</span>
+          </div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-image">
+            <span class="leaf">🌱</span>
+            🎸
+          </div>
+          <div class="figure-info">
+            <h3>Rock & Wood</h3>
+            <p>Homenatge a la música, amb textura de fusta vista.</p>
+            <span class="figure-tag">Fusta natural</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONALITZACIÓ -->
+  <section id="personalitzacio">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Personalització</span>
+        <h2>El teu propi EcoPop</h2>
+        <p>No només personatges famosos. També podem fer figures de persones reals.</p>
+      </div>
+      <div class="personalization-content">
+        <div class="personalization-text">
+          <h3>De tu, per a tu (o per regalar)</h3>
+          <p>
+            Una de les parts més especials del projecte és la possibilitat de crear figures 
+            inspirades en persones reals: alumnes, professors, familiars o amics.
+          </p>
+          <p>
+            A partir d’una foto o una descripció, dissenyem una versió “Funko style” 
+            en fusta i cartró, única i amb significat.
+          </p>
+          <ul class="check-list">
+            <li>Triar el personatge o la persona</li>
+            <li>Definir colors i estil</li>
+            <li>Disseny digital i proves</li>
+            <li>Tall, muntatge i acabat personalitzat</li>
+          </ul>
+        </div>
+        <div class="personalization-visual">
+          <div class="big-icon">🖼️ → 👤</div>
+          <h4>De la foto a la figura</h4>
+          <p>Convertim una imatge real en una peça col·leccionable feta amb materials reciclats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTE -->
+  <section class="impact" id="impacte">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Impacte</span>
+        <h2>Més que una figura</h2>
+        <p>Cada EcoPop Wood contribueix a una manera diferent de consumir i crear.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="icon">♻️</div>
+          <h3>Menys residus</h3>
+          <p>Donem una segona vida a fusta i cartró que altrament acabarien a la deixalleria.</p>
+        </div>
+        <div class="impact-card">
+          <div class="icon">🏭</div>
+          <h3>Sense plàstic nou</h3>
+          <p>Evitem la producció industrial de plàstic i el seu impacte associat.</p>
+        </div>
+        <div class="impact-card">
+          <div class="icon">📍</div>
+          <h3>Producció local</h3>
+          <p>Tot es dissenya i fabrica a Mallorca, reduint transport i impulsant el talent local.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACTE -->
+  <section class="cta" id="contacte">
+    <div class="cta-box">
+      <h2>Vols saber-ne més?</h2>
+      <p>
+        Aquest és un projecte escolar en desenvolupament. 
+        Si t’interessa el procés, vols veure les figures en persona o tens alguna idea, parla’ns!
+      </p>
+      <a href="mailto:ecopopwood@exemple.com" class="btn btn-primary">Escriu-nos</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="logo">
+      <div class="logo-icon">👤</div>
+      EcoPop Wood
+    </a>
+    <p class="location">Mallorca, Illes Balears</p>
+    <p>Figures amb cap gran i impacte petit · Projecte escolar sostenible</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Simple mobile menu (optional enhancement)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '100%';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'var(--cream)';
+      navLinks.style.padding = '1.5rem';
+      navLinks.style.gap = '1rem';
+      navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+    });
+  </script>
+</body>
+</html>
